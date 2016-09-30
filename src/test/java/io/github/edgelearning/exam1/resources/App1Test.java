@@ -1,7 +1,6 @@
 package io.github.edgelearning.exam1.resources;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
@@ -16,7 +15,14 @@ public class App1Test {
      */
     @Test
     public void testPrintCurrentCounterValue() {
-        assertThat(new App1().printCurrentCounterValue(), is(nullValue()));
+        App1 target = new App1();
+        for (int i = 1; i < 12; i++) {
+            if (i < 11) {
+                assertThat(target.printCurrentCounterValue(), is(String.valueOf(i)));
+            } else {
+                assertThat(target.printCurrentCounterValue(), is("1"));
+            }
+        }
     }
 
 }
